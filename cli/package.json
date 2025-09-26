@@ -1,48 +1,54 @@
 {
-  "name": "mittvibes-cli",
-  "version": "1.0.0",
-  "description": "CLI tool to generate boilerplate for mittwald extensions",
-  "type": "module",
-  "main": "dist/index.js",
-  "bin": {
-    "mittvibes": "./dist/index.js"
-  },
-  "scripts": {
-    "build": "tsc && pnpm copy-templates",
-    "copy-templates": "cp -r ../templates dist/templates",
-    "dev": "tsx src/index.ts",
-    "start": "node dist/index.js",
-    "clean": "rm -rf dist",
-    "prepublishOnly": "pnpm clean && pnpm build"
-  },
-  "files": [
-    "dist/**/*"
-  ],
-  "keywords": [
-    "mittwald",
-    "extension",
-    "boilerplate",
-    "cli",
-    "generator"
-  ],
-  "author": "weissaufschwarz",
-  "license": "MIT",
-  "dependencies": {
-    "@47ng/cloak": "^1.2.0",
-    "chalk": "^5.3.0",
-    "dotenv": "^16.4.5",
-    "fs-extra": "^11.2.0",
-    "inquirer": "^9.2.15",
-    "ora": "^8.0.1"
-  },
-  "devDependencies": {
-    "@types/fs-extra": "^11.0.4",
-    "@types/inquirer": "^9.0.7",
-    "@types/node": "^22.5.4",
-    "tsx": "^4.19.1",
-    "typescript": "^5.6.2"
-  },
-  "engines": {
-    "node": ">=18.0.0"
-  }
+	"name": "mittvibes-cli",
+	"version": "1.0.0",
+	"description": "CLI tool to generate boilerplate for mittwald extensions",
+	"type": "module",
+	"main": "dist/index.js",
+	"bin": {
+		"mittvibes": "./dist/index.js"
+	},
+	"scripts": {
+		"build": "tsc",
+		"dev": "tsx src/index.ts",
+		"start": "node dist/index.js",
+		"clean": "rm -rf dist",
+		"prepublishOnly": "pnpm clean && pnpm build"
+	},
+	"files": [
+		"dist/**/*"
+	],
+	"keywords": [
+		"mittwald",
+		"extension",
+		"boilerplate",
+		"cli",
+		"generator"
+	],
+	"author": "weissaufschwarz",
+	"license": "MIT",
+	"dependencies": {
+		"@47ng/cloak": "^1.2.0",
+		"@mittwald/api-client": "^4.230.0",
+		"chalk": "^5.3.0",
+		"dotenv": "^16.4.5",
+		"fs-extra": "^11.2.0",
+		"get-port": "^7.1.0",
+		"inquirer": "^9.2.15",
+		"node-fetch": "^3.3.2",
+		"open": "^10.2.0",
+		"ora": "^8.0.1",
+		"yauzl": "^3.2.0"
+	},
+	"devDependencies": {
+		"@types/fs-extra": "^11.0.4",
+		"@types/inquirer": "^9.0.7",
+		"@types/node": "^22.5.4",
+		"@types/node-fetch": "^2.6.13",
+		"@types/yauzl": "^2.10.3",
+		"tsx": "^4.19.1",
+		"typescript": "^5.6.2"
+	},
+	"engines": {
+		"node": ">=18.0.0"
+	}
 }
