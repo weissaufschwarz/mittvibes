@@ -26,7 +26,7 @@ export const CompletionScreen: React.FC<CompletionScreenProps> = ({
 					const prismaKey = generateKey();
 
 					const envContent = `# Database
-${config.setupDatabase && config.databaseUrl ? `DATABASE_URL="${config.databaseUrl}"` : "# DATABASE_URL=postgresql://user:password@localhost:5432/dbname"}
+${config.setupDatabase && config.databaseUrl ? `DATABASE_URL="${config.databaseUrl}"` : 'DATABASE_URL="postgresql://USER:REPLACEME@localhost:5432/dbname"'}
 PRISMA_FIELD_ENCRYPTION_KEY="${prismaKey}"
 
 # mittwald Extension
@@ -169,6 +169,18 @@ NODE_ENV=development
 				<Text color="white">
 					{process.cwd()}/{config.projectName}
 				</Text>
+			</Box>
+			<Box marginTop={1}>
+				<Text color="gray">Quick start:</Text>
+			</Box>
+			<Box
+				marginTop={0}
+				paddingX={2}
+				paddingY={1}
+				borderStyle="single"
+				borderColor="gray"
+			>
+				<Text color="cyan">cd {config.projectName} && pnpm dev</Text>
 			</Box>
 			<Box marginTop={1}>
 				<Text>

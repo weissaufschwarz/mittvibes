@@ -1,6 +1,6 @@
 # mittvibes
 
-CLI tool to generate boilerplate for Mittwald extensions.
+CLI tool to generate boilerplate for mittwald mStudio extensions.
 
 *Powered by weissaufschwarz*
 
@@ -58,7 +58,7 @@ The CLI will guide you through the complete setup process:
 ### 🚀 Complete Boilerplate
 - TanStack Start framework setup
 - Prisma ORM with PostgreSQL and field encryption
-- Mittwald Extension Bridge integration
+- mittwald Extension Bridge integration
 - Webhook handling with mitthooks
 - Sentry error tracking
 - Biome linting and formatting
@@ -301,8 +301,8 @@ mittvibes auth:login
 ## Support
 
 - CLI Issues: Report in this repository
-- Mittwald Extension Development: [Developer Documentation](https://developer.mittwald.de/docs/v2/contribution/)
-- API Reference: [Mittwald API Docs](https://api.mittwald.de/v2/docs/)
+- mittwald Extension Development: [Developer Documentation](https://developer.mittwald.de/docs/v2/contribution/)
+- API Reference: [mittwald API Docs](https://api.mittwald.de/v2/docs/)
 
 ---
 

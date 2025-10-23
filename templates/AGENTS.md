@@ -5,7 +5,7 @@ This is a mittwald extension project using React components and API integration 
 
 ## Package Management & Dependencies
 - **Package Manager**: Use `pnpm` exclusively
-- **API Client**: Always use `@mittwald/api-client` package's `MittwaldAPIV2Client.newWithToken()` for Mittwald API calls
+- **API Client**: Always use `@mittwald/api-client` package's `MittwaldAPIV2Client.newWithToken()` for mittwald API calls
 - **UI Components**: ALWAYS use `@mittwald/flow-remote-react-components` instead of standard HTML elements
   - Use `Content` instead of `<div>`
   - Use `Text` instead of `<p>`, `<span>`

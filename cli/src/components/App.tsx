@@ -62,7 +62,7 @@ export const App: React.FC<AppProps> = ({ command }) => {
 				return (
 					<Box flexDirection="column">
 						<WelcomeScreen />
-						<LoginCommand onComplete={() => setCurrentScreen("init")} />
+						<LoginCommand />
 					</Box>
 				);
 

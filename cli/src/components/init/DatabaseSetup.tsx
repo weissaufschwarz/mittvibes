@@ -25,6 +25,7 @@ type DatabaseState =
 	| "enterUrl"
 	| "askMigration"
 	| "runningMigration"
+	| "generatingClient"
 	| "migrationError"
 	| "completed";
 
@@ -47,9 +48,29 @@ export const DatabaseSetup: React.FC<DatabaseSetupProps> = ({
 		{ label: "No, I will do it manually later", value: "no" },
 	];
 
-	const handleSetupChoice = (item: { value: string }) => {
+	const handleSetupChoice = async (item: { value: string }) => {
 		if (item.value === "no") {
-			onComplete({ setupDatabase: false, runMigration: false });
+			// Still need to generate Prisma client even without database config
+			if (installDeps) {
+				setState("generatingClient");
+				try {
+					const projectPath = path.join(process.cwd(), projectName);
+					execSync("pnpm db:generate", {
+						cwd: projectPath,
+						stdio: "inherit",
+					});
+					onComplete({ setupDatabase: false, runMigration: false });
+				} catch (err: unknown) {
+					let errorMessage = "Failed to generate Prisma client";
+					if (err instanceof Error) {
+						errorMessage += `: ${err.message}`;
+					}
+					setMigrationError(errorMessage);
+					setState("migrationError");
+				}
+			} else {
+				onComplete({ setupDatabase: false, runMigration: false });
+			}
 		} else {
 			setState("enterUrl");
 		}
@@ -193,6 +214,18 @@ export const DatabaseSetup: React.FC<DatabaseSetupProps> = ({
 						<Text color="yellow">🔄 Running database migration...</Text>
 						<Box marginTop={1}>
 							<Text color="gray">Generating Prisma client...</Text>
+						</Box>
+					</Box>
+				);
+
+			case "generatingClient":
+				return (
+					<Box flexDirection="column">
+						<Text color="yellow">🔄 Generating Prisma client...</Text>
+						<Box marginTop={1}>
+							<Text color="gray">
+								Setting up Prisma with placeholder database configuration
+							</Text>
 						</Box>
 					</Box>
 				);
